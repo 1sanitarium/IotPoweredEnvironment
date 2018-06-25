@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cassandra>
+	<keyspaces>
+		<keyspace> create keyspace if not exists pemp WITH REPLICATION = {
+			'class' : 'SimpleStrategy', 'replication_factor' : 1 }
+		</keyspace>
+	</keyspaces>
+	<use> use pemp
+	</use>
+	<tables>
+		<table> create table if not exists sensor_config (id text, sensor
+			text, location text, PRIMARY KEY ((id, sensor), location))
+		</table>
+		<table> create table if not exists sensor_values (id text, value
+			text, unit text, type text, time timestamp, PRIMARY KEY ((id), type, time)) 
+			WITH CLUSTERING ORDER BY (type DESC, time DESC)
+		</table>
+	</tables>
+</cassandra>
