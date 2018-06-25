@@ -143,4 +143,8 @@ public class CassandraPersistenceService {
         return !session.isClosed();
     }
 
+    public MappingManager getMappingManager() {
+        return mappingManager;
+    }
+
 }

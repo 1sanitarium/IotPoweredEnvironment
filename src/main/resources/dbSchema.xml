@@ -9,7 +9,7 @@
 	</use>
 	<tables>
 		<table> create table if not exists sensor_config (id text, sensor
-			text, location text, PRIMARY KEY ((id, sensor), location))
+			text, location text, PRIMARY KEY ((id), sensor, location))
 		</table>
 		<table> create table if not exists sensor_values (id text, value
 			text, unit text, type text, time timestamp, PRIMARY KEY ((id), type, time)) 
