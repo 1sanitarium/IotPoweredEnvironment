@@ -13,6 +13,7 @@ import net.metro.iot.monitoring.iotMonitoring.persistence.config.CassandraPersis
 
 @Component
 public class SensorConfigManager {
+
     @Autowired
     private CassandraPersistenceService persistenceService;
 
