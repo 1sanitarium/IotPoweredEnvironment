@@ -2,35 +2,90 @@ package net.metro.iot.monitoring.iotMonitoring.dto;
 
 public class SensorValueDto {
 
-    private String id;
+    private String deviceId;
 
-    private String sensor;
+    private String temperature;
 
-    private String location;
+    private String pressure;
 
-    public SensorValueDto() {
+    private String humidity;
+
+    private String gas;
+
+    private String altitude;
+
+    private String tvoc;
+
+    private String eco2;
+
+    public String getDeviceId() {
+        return deviceId;
     }
 
-    public SensorValueDto(String id, String sensor, String location) {
-        this.id = id;
-        this.sensor = sensor;
-        this.location = location;
+    public void setDeviceId(String deviceId) {
+        this.deviceId = deviceId;
     }
 
-    public String getId() {
-        return id;
+    public String getTemperature() {
+        return temperature;
     }
 
-    public String getSensor() {
-        return sensor;
+    public void setTemperature(String temperature) {
+        this.temperature = temperature;
     }
 
-    public String getLocation() {
-        return location;
+    public String getPressure() {
+        return pressure;
+    }
+
+    public void setPressure(String pressure) {
+        this.pressure = pressure;
+    }
+
+    public String getHumidity() {
+        return humidity;
+    }
+
+    public void setHumidity(String humidity) {
+        this.humidity = humidity;
+    }
+
+    public String getGas() {
+        return gas;
+    }
+
+    public void setGas(String gas) {
+        this.gas = gas;
+    }
+
+    public String getAltitude() {
+        return altitude;
+    }
+
+    public void setAltitude(String altitude) {
+        this.altitude = altitude;
+    }
+
+    public String getTvoc() {
+        return tvoc;
+    }
+
+    public void setTvoc(String tvoc) {
+        this.tvoc = tvoc;
+    }
+
+    public String getEco2() {
+        return eco2;
+    }
+
+    public void setEco2(String eco2) {
+        this.eco2 = eco2;
     }
 
     @Override
     public String toString() {
-        return "SensorConfigDto [id=" + id + ", sensor=" + sensor + ", location=" + location + "]";
+        return "SensorValueDto [deviceId=" + deviceId + ", temperature=" + temperature + ", pressure=" + pressure + ", humidity=" + humidity + ", gas=" + gas
+                + ", altitude=" + altitude + ", tvoc=" + tvoc + ", eco2=" + eco2 + "]";
     }
+
 }
