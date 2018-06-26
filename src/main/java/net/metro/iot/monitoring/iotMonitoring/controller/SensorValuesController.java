@@ -2,7 +2,6 @@ package net.metro.iot.monitoring.iotMonitoring.controller;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -17,8 +16,8 @@ public class SensorValuesController {
     //    private SensorValueService sensorValueService;
 
     @RequestMapping(value = "/", method = RequestMethod.POST)
-    public void get(@RequestBody String sensorValue, HttpServletRequest request) throws Exception {
-        throw new Exception(sensorValue);
+    public void save(HttpServletRequest request) throws Exception {
+        throw new Exception(request.toString());
     }
 
 }
