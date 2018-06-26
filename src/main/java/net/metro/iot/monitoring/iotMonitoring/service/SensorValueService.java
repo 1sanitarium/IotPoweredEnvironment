@@ -32,9 +32,11 @@ public class SensorValueService {
                 e.printStackTrace();
             }
             SensorValue sensorValue = new SensorValue(sensorValueDto.getDeviceId(), value, new Date(), null, field.getName());
-            if (sensorValue.getValue().isEmpty()) {
+
+            if (!sensorValue.getValue().isEmpty()) {
                 sensorValueDao.save(sensorValue);
             }
+
         });
     }
 
