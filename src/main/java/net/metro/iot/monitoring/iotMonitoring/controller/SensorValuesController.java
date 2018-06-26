@@ -1,18 +1,24 @@
 package net.metro.iot.monitoring.iotMonitoring.controller;
 
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import net.metro.iot.monitoring.iotMonitoring.dto.SensorValueDto;
+import net.metro.iot.monitoring.iotMonitoring.service.SensorValueService;
+
 @RestController
-@RequestMapping("/sensor_values")
+@RequestMapping("/sensor_value")
 public class SensorValuesController {
 
-    @RequestMapping(value = "/{values}", method = RequestMethod.POST)
-    public String get(@PathVariable("values") String values) throws Exception {
-        System.out.println(values);
-        return values;
+    @Autowired
+    private SensorValueService sensorValueService;
+
+    @RequestMapping(value = "/", method = RequestMethod.POST)
+    public void get(@RequestBody SensorValueDto sensorValue) throws Exception {
+        sensorValueService.save(sensorValue);
     }
 
 }
