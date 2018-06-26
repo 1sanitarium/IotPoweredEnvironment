@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 import net.metro.iot.monitoring.iotMonitoring.dao.SensorValueDao;
 import net.metro.iot.monitoring.iotMonitoring.domain.SensorValue;
 import net.metro.iot.monitoring.iotMonitoring.dto.SensorValueDto;
+import net.metro.iot.monitoring.iotMonitoring.util.UnitsEnum;
 
 @Service
 public class SensorValueService {
@@ -37,7 +38,8 @@ public class SensorValueService {
                 LOGGER.info(value);
 
                 if (Objects.nonNull(value)) {
-                    SensorValue sensorValue = new SensorValue(sensorValueDto.getDeviceId(), value, new Date(), null, field.getName());
+                    SensorValue sensorValue = new SensorValue(sensorValueDto.getDeviceId(), value, new Date(), UnitsEnum.getUnit(field.getName().toUpperCase()),
+                            field.getName());
                     sensorValueDao.save(sensorValue);
                 }
             } catch (IllegalArgumentException | IllegalAccessException e) {
