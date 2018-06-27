@@ -66,6 +66,7 @@ public class SensorValueService {
                     DistributionSummary.Builder builder = DistributionSummary.builder("iot.sensorData.histogram")
                             .description("Histogram of values")
                             .baseUnit(UnitsEnum.getUnit(field.getName().toUpperCase()))
+                            .tag("device", sensorValueDto.getDeviceId())
                             .tag("unit", UnitsEnum.getUnit(field.getName().toUpperCase()))
                             .tag("type", field.getName());
 
