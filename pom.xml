@@ -109,6 +109,7 @@
 			<artifactId>micrometer-registry-datadog</artifactId>
 			<version>1.0.5</version>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/io.micrometer/micrometer-registry-statsd -->
 		<dependency>
 			<groupId>io.micrometer</groupId>
 			<artifactId>micrometer-registry-statsd</artifactId>
@@ -117,11 +118,6 @@
 		<dependency>
 			<groupId>io.micrometer</groupId>
 			<artifactId>micrometer-core</artifactId>
-			<version>1.0.5</version>
-		</dependency>
-		<dependency>
-			<groupId>io.micrometer</groupId>
-			<artifactId>micrometer-registry-prometheus</artifactId>
 			<version>1.0.5</version>
 		</dependency>
 		<!--<dependency> -->
