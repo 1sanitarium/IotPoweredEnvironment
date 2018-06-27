@@ -2,15 +2,14 @@ package net.metro.iot.monitoring.iotMonitoring.controller;
 
 import javax.servlet.http.HttpServletRequest;
 
-import io.micrometer.core.instrument.Counter;
-import io.micrometer.core.instrument.MeterRegistry;
 import org.springframework.beans.factory.annotation.Autowired;
-
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import io.micrometer.core.instrument.Counter;
+import io.micrometer.core.instrument.MeterRegistry;
 import net.metro.iot.monitoring.iotMonitoring.dto.SensorValueDto;
 import net.metro.iot.monitoring.iotMonitoring.service.SensorValueService;
 
