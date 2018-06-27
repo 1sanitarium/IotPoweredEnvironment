@@ -66,7 +66,7 @@ public class SensorValueService {
                     DistributionSummary.Builder builder = DistributionSummary.builder("iot.sensorData.histogram")
                             .description("Histogram of values")
                             .baseUnit(UnitsEnum.getUnit(field.getName().toUpperCase()))
-                            .tag("device", sensorValueDto.getDeviceId())
+                            .tag("iotDevice", sensorValueDto.getDeviceId())
                             .tag("unit", UnitsEnum.getUnit(field.getName().toUpperCase()))
                             .tag("type", field.getName());
 
@@ -75,7 +75,10 @@ public class SensorValueService {
                     tags.forEach( (k,v) -> builder.tags(k, v));
 
                     DistributionSummary summary = builder.register(registry);
-                    summary.record(Long.valueOf(value));
+
+                    Float val = Float.valueOf(value) * 100;
+
+                    summary.record((double) val);
                 }
             } catch (IllegalArgumentException | IllegalAccessException e) {
                 LOGGER.info(e.toString());
