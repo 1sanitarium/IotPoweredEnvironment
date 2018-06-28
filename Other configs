@@ -48,3 +48,12 @@ VM instance casandra + datadog agent.
 Config cahnged to enable statd on UDP port.
 
 Firewall rule created for database and statd on datadog agent.
+
+
+Arduino libs
+
+https://pubsubclient.knolleary.net
+
+https://cloud.google.com/iot/docs/
+
+
