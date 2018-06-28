@@ -1,0 +1,50 @@
+Cloud function
+
+var request = require('superagent');
+
+/**
+ * Triggered from a message on a Cloud Pub/Sub topic.
+ *
+ * @param {!Object} event The Cloud Functions event.
+ * @param {!Function} The callback function.
+ */
+exports.subscribe = (event, callback) => {
+  // The Cloud Pub/Sub Message object.
+  
+  const pubsubMessage = event.data;
+  
+  console.log(event);
+  const data = JSON.parse(Buffer.from(pubsubMessage.data, 'base64').toString());
+  console.log(data);
+  
+  // Don't forget to call the callback.
+  post('https://animated-bonsai-195009.appspot.com/sensor_value/'
+       ,data, callback);
+};
+
+
+post = (uri, data, callback) => {
+    return request.post(uri)
+        .timeout(3000)
+        .retry(1)
+        .accept('application/json')
+        .set('Content-Type', 'application/json')
+        .send(data)
+        .then(res => {
+      	  console.log(res);
+          callback();
+        })
+        .catch(error => {
+        	console.log(error);
+      	});
+};
+
+
+
+--------
+
+VM instance casandra + datadog agent.
+
+Config cahnged to enable statd on UDP port.
+
+Firewall rule created for database and statd on datadog agent.
