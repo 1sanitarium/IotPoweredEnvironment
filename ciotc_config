@@ -1,0 +1,45 @@
+/******************************************************************************
+ * Copyright 2018 Google
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *    http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *****************************************************************************/
+// This file contains your configuration used to connect to Cloud IoT Core
+
+// WIFI
+const char* ssid = "AP2";
+const char* password = "Vaslui1475";
+
+// Cloud iot details.
+const char* project_id = "animated-bonsai-195009";
+const char* location = "europe-west1";
+const char* registry_id = "metro-iot-reg1";
+const char* device_id = "wemo1";
+// To get the private key run (where private-key.pem is the ec private key
+// used to create the certificate uploaded to google cloud iot):
+// openssl ec -in <private-key.pem> -noout -text
+// and copy priv: part.
+const char* private_key_str =
+    "75:5c:8a:8c:35:ac:35:51:dd:66:45:dc:73:f7:7f:"
+    "9c:a1:45:c3:e7:f7:dc:be:8d:74:cd:4a:f0:6c:80:"
+    "8b:42";
+
+// TODO: Use root certificate to verify tls connection rather than using a
+// fingerprint.
+// To get the fingerprint run
+// openssl s_client -connect cloudiotdevice.googleapis.com:443 -cipher <cipher>
+// Copy the certificate (all lines between and including ---BEGIN CERTIFICATE---
+// and --END CERTIFICATE--) to a.cert. Then to get the fingerprint run
+// openssl x509 -noout -fingerprint -sha1 -inform pem -in a.cert
+// <cipher> is probably ECDHE-RSA-AES128-GCM-SHA256, but if that doesn't work
+// try it with other ciphers obtained by sslscan cloudiotdevice.googleapis.com.
+const char* fingerprint =
+    "17:13:CB:BA:56:02:7C:99:B0:CC:CE:0F:B6:BE:27:48:59:C6:91:51";
